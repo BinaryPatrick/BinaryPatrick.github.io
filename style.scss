@@ -194,12 +194,12 @@ img {
     width: calc(450px - 8rem);
 
     @include tablet {
-    width: calc(300px - 4rem);
-	}
+      width: calc(300px - 4rem);
+    }
 
     @include mobile {
       position: relative;
-      max-width: 100%;
+      width: 100%;
     }
   }
 
