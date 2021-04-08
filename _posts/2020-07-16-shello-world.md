@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Hello World!'
+permalink: 'hello-world'
 date: 2020-07-16 -0500
 tags: 'General'
 ---
