@@ -117,6 +117,7 @@ b {
 
 img {
   max-width: 100%;
+  border: 1pt solid #ccc;
 }
 
 // Fixes images in popup boxes from Google Translate
@@ -417,6 +418,39 @@ img {
 
   @include mobile {
     font-size: 1.5rem;
+  }
+}
+
+/****************************/
+/* Random General */
+/****************************/
+
+.right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.right,
+.left {
+  @include mobile {
+    float: unset;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.sz400init {
+  width: 350px;
+  @include tablet {
+    width: 300px;
+  }
+  @include mobile {
+    width: initial;
   }
 }
 

@@ -1,7 +1,6 @@
 ---
 layout: post
-title: 'Super Outlook SPAM Rule'
-permalink: 'outlook-spam-rule'
+title: 'Creating a super Outlook SPAM Rule'
 date: 2021-03-23 22:40:00 -0500
 tags: ['Outlook', 'Spam']
 ---
@@ -26,7 +25,7 @@ For me, the easiest way to pull up email rules is to click on the settings icon 
 
 From here click `Add new rule`. A create rule screen will appear and you can start setting up the rule. I named my rule "Not from {organization} is Junk". Under condition choose `Apply to all messages`. This may seem wrong at first, but it will make more sense in a second.
 
-![Rules](./images/outlook-spam-rules.png)
+![Rules](/images/outlook-spam-rules.png)
 
 Add the action to `Move to` the `Junk Email` folder, and for an added nicety, Add anohter action to set `Mark as read` too.
 

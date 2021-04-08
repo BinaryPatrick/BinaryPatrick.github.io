@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
     {% include meta.html %}
-    <link rel="shortcut icon" href="{{ site.baseurl }}/images/favicon.ico" />
+    <link rel="shortcut icon" href="/images/favicon.ico" />
 
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&display=swap"
       rel="stylesheet"
@@ -18,7 +18,7 @@
       rel="alternate"
       type="application/rss+xml"
       title="{{ site.name }} - {{ site.description }}"
-      href="{{ site.baseurl }}/feed.xml"
+      href="/feed.xml"
     />
   </head>
 
@@ -26,7 +26,7 @@
     <div id="sidebar">
       <div class="sidebar-body">
         <div class="masthead">
-          <a class="site-name" href="{{ site.baseurl }}/">{{ site.name }}</a>
+          <a class="site-name" href="/">{{ site.name }}</a>
           <p class="site-description">{{ site.description }}</p>
           <div class="menu-toggle" onclick="toggleMenu()">
             <div class="toggle-bar"></div>
@@ -40,13 +40,13 @@
           <div class="site-recents">
             <div class="site-recents-label">Recent Posts</div>
             {% for post in site.posts limit:6 %}
-            <div class="site-recents-post"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+            <div class="site-recents-post"><a href="{{ post.url }}">{{ post.title }}</a></div>
             {% endfor %}
           </div>
           <div class="social">{% include svg-icons.html %}</div>
           <div class="footer-links">
-            <p><a href="{{ site.baseurl }}/tags">Tags</a></p>
-            <p><a href="{{ site.baseurl }}/archive">Archives</a></p>
+            <p><a href="/tags">Tags</a></p>
+            <p><a href="/archive">Archives</a></p>
             <p><a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a></p>
           </div>
         </div>
