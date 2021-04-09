@@ -8,27 +8,12 @@
 @import 'variables';
 @import 'reset';
 
+@import 'base';
+@import 'header';
+
 /**************/
 /* BASE RULES */
 /**************/
-
-html {
-  height: 100%;
-  overflow-y: scroll;
-}
-
-body {
-  background: $white;
-  font: 18px/1.4 $notoSans;
-  color: $darkGray;
-  min-height: 100%;
-  display: flex;
-  flex-direction: row;
-
-  @include mobile {
-    flex-direction: column;
-  }
-}
 
 h1,
 h2,
@@ -39,6 +24,7 @@ h6 {
   font-family: $notoSerif;
   font-weight: bold;
   line-height: 1.7;
+  cursor: default;
 
   @include mobile {
     line-height: 1.4;
@@ -46,12 +32,22 @@ h6 {
 }
 
 h1 {
+  display: inline-block;
+  padding: 0 7px;
+  margin-bottom: 5px;
+  background: #1e73be;
+  color: #fff;
+  border-radius: 3px;
   font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-top: 1rem;
+  display: inline-block;
+  padding: 0 5px;
+  border: 2px solid #1e73be;
+  color: #1e73be;
 }
 
 h3 {
@@ -69,17 +65,6 @@ p {
 
   @include mobile {
     overflow-x: auto;
-  }
-}
-
-a {
-  color: $blue;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover,
-  &:active {
-    color: $darkGray;
-    text-decoration: underline;
   }
 }
 
@@ -180,7 +165,7 @@ img {
 #sidebar {
   width: 450px;
   color: $white;
-  background-color: $blue;
+  background-color: $primary;
   font-family: $notoSans;
   padding: 4rem;
 
@@ -194,13 +179,9 @@ img {
     width: 100%;
   }
 
-  a {
-    color: $white;
-  }
-
   .sidebar-body {
-    position: fixed;
-    width: calc(450px - 8rem);
+    // position: fixed;
+    // width: calc(450px - 8rem);
 
     @include tablet {
       width: calc(300px - 4rem);
@@ -225,7 +206,7 @@ img {
       margin: 0;
 
       &:hover {
-        color: $lightYellow;
+        color: $secondary;
         text-decoration: none;
       }
 
@@ -311,6 +292,28 @@ img {
     p {
       margin: 5px 0;
     }
+  }
+}
+
+:root[user-color-mode='dark'] .color-mode-toggle.dark {
+  display: none;
+}
+
+:root:not([user-color-mode='dark']) .color-mode-toggle.light {
+  display: none;
+}
+
+.color-mode-toggle {
+  cursor: pointer;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 0.8rem;
+
+  &.dark {
+    background: #333;
+    color: #bbb;
   }
 }
 
@@ -406,6 +409,15 @@ img {
 }
 
 /*********************/
+/* Listing pages */
+/*********************/
+
+.tag-heading,
+.year-heading {
+  margin: 15px 0 10px;
+}
+
+/*********************/
 /* 404 */
 /*********************/
 
@@ -445,11 +457,18 @@ img {
 
 .right,
 .left {
+  margin-bottom: 1rem;
+
   @include mobile {
     float: unset;
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+* .left + *,
+* .right + * {
+  clear: both;
 }
 
 .sz400init {

@@ -1,0 +1,55 @@
+header {
+  width: 82rem;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+
+  * {
+    text-decoration: none !important;
+  }
+
+  .site-name {
+    line-height: 3.6rem;
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--color-primary-offset);
+    background-color: var(--color-primary-main);
+    transition: color 0.5s;
+
+    &:hover {
+      color: var(--color-secondary-main);
+    }
+  }
+
+  nav {
+    ul {
+      margin: 0 auto;
+      line-height: 3.6rem;
+      text-align: right;
+      list-style-type: none;
+      list-style-position: inside;
+
+      li {
+        display: inline;
+        position: relative;
+        top: 0;
+        margin-right: 4rem;
+        border-bottom: 3px solid transparent;
+        font-size: 1.3rem;
+        color: var(--color-main-text);
+        transition: top 0.35s, padding 0.35s;
+
+        &:hover,
+        &:active,
+        &:focus {
+          top: -0.3rem;
+          padding-bottom: 0.3rem;
+          border-bottom-color: var(--color-primary-main);
+        }
+      }
+    }
+  }
+}

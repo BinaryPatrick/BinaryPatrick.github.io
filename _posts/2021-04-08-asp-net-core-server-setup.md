@@ -6,7 +6,7 @@ edit: 2021-04-09 12:00:00 -0500
 tags: ['Server', 'Pipeline', 'DevOps', '.NET Core']
 ---
 
-I wanted to memorialize some important steps I take setting up a new server for hosting ASP.Net Core apps. These steps change over time as versions and features change, but this post will serve as a good, general guide for things to consider and remember; both for myself and anyone else who stumbles across it!
+I wanted to document some important steps I take setting up a new server for hosting ASP.Net Core apps. These steps change over time as versions and features change, but this post will serve as a good, general guide for things to consider and remember; both for myself and anyone else who stumbles across it!
 
 <!--more-->
 
@@ -23,8 +23,9 @@ First things first, make sure you can remote into the server, and make sure you 
 This step is simple, but sometimes finding the install bundle isn't. Start by going to the [dotnet download page](https://dotnet.microsoft.com/download) where you'll see several available versions. I typically choose the current **LTS** version, but _ultimately the version will need to match whatever version of dotnet your app is running_.
 
 <img alt="Download Version" src="/images/asp-net-core-server-setup-1.png" class="right sz400init"/>
+My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under that version and then on the next page specifically choose **Download Hosting Bundle**. The hosting bundle is critical because it will install a necessary IIS ISAPI filter for ASP.NET Core. Once you have your bundle, simply install it on the server, and finally restart. To confirm your version is installed, run `dotnet --info` in powershell. The _Host_ section should reflect the version you just installed.
 
-My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under that version and then on the next page specifically choose **Download Hosting Bundle**. The hosting bundle is critical because it will install a necessary IIS ISAPI filter for ASP.NET Core. Once you have your bundle, simply install it on the server, and finally restart. To confirm your version is installed, run `dotnet --info` in powershell. The _Host_ section should reflect the version you just installed. **Note**: Don't be discouraged if you see the message _It was not possible to find any installed .NET Core SDKs_. The SDK is a separate install, and is not required for runtime.
+> Don't be discouraged if you see a message saying **It was not possible to find any installed .NET Core SDKs**. The SDK is a separate install, and is not required for runtime.
 
 ![Download Version](/images/asp-net-core-server-setup-2.png)
 

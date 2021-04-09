@@ -3,7 +3,7 @@
 #
 
 # Name of your site (displayed in the header)
-name: Patrick's Blog
+name: Patrick Moore
 
 # Short bio or description (displayed in the header)
 description: Into the Void!
@@ -60,6 +60,8 @@ excerpt_separator: <!--more-->
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
+  # Enable auto-generated ID's for headings
+  auto_ids: true
   # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:

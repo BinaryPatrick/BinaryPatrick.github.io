@@ -2,27 +2,89 @@
 // VARIABLES
 //
 
-// Colors
-// $blue: #4183c4;
-
-// Grays
+// grays
 $black: #000;
 $darkerGray: #222;
 $darkGray: #333;
 $gray: #555;
+$middleGray: #777;
 $lightGray: #ccc;
 $lighterGray: #eee;
+$offWhite: #fefdfc;
 $white: #fff;
-$blue: #1e73be;
-$lightOrange: #f3d0b1;
-$lightYellow: #ffe48f;
 
-// Font stacks
+// colors
+$primary: #1e73be;
+$secondary: #ffe48f;
+$background: #d9ecff;
+
+// font stacks
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
 $notoSerif: 'Noto Serif', serif;
 $notoSans: 'Noto Sans', sans-serif;
+
+:root {
+  --color-outer-background: #{$background};
+  --color-outer-border: #{darken($background, 30%)};
+
+  --color-main-text: #{$darkGray};
+  --color-main-offset: #{$offWhite};
+
+  --color-primary-main: #{$primary};
+  --color-primary-offset: #{$white};
+  --color-primary-border: #{$darkGray};
+
+  --color-secondary-main: #{$secondary};
+  --color-secondary-offset: #{$darkGray};
+  --color-secondary-border: #{$background};
+
+  --color-selection-bg: #{$primary};
+  --color-selection-text: #{$offWhite};
+  --color-secondary-bg: #fff5d2;
+  --color-secondary-text: #fde9a2;
+  --color-tertiary: #ff9d7a;
+  --color-accent: #ff8255;
+  --color-transparent: rgba(255, 255, 255, 0);
+  --pattern: #f8f8fa;
+  --color-patreon: #ff9d7a;
+  --color-codepen: #ffde69;
+  --color-devto: #a4e8a3;
+  --color-twitter: #8ae6fb;
+  --color-twitch: #e2d4ff;
+  --color-linkedin: #a3cdff;
+  --color-github: #ffaad3;
+  --color-switch-bg: rgba(62, 51, 85, 0.1);
+  --accent-border: linear-gradient(90deg, #ffaad3, #ff9d7a, #ffde69, #a4e8a3, #8ae6fb, #e2d4ff);
+}
+
+:root[user-color-mode='dark'] {
+  --color-main-text: #3e3355;
+  --color-main-text-transparent: rgba(62, 51, 85, 0.25);
+  --color-main-bg: #fefdfc;
+  --color-cta-text: #5b0505;
+  --color-cta-bg: #ff9d7a;
+  --color-brand-main: #f2edfc;
+  --color-brand-outline: #e2d4ff;
+  --color-selection-bg: #e2d4ff;
+  --color-selection-text: #400456;
+  --color-secondary-bg: #fff5d2;
+  --color-secondary-text: #fde9a2;
+  --color-tertiary: #ff9d7a;
+  --color-accent: #ff8255;
+  --color-transparent: rgba(255, 255, 255, 0);
+  --pattern: #f8f8fa;
+  --color-patreon: #ff9d7a;
+  --color-codepen: #ffde69;
+  --color-devto: #a4e8a3;
+  --color-twitter: #8ae6fb;
+  --color-twitch: #e2d4ff;
+  --color-linkedin: #a3cdff;
+  --color-github: #ffaad3;
+  --color-switch-bg: rgba(62, 51, 85, 0.1);
+  --accent-border: linear-gradient(90deg, #ffaad3, #ff9d7a, #ffde69, #a4e8a3, #8ae6fb, #e2d4ff);
+}
 
 // Mobile breakpoints
 @mixin mobile {

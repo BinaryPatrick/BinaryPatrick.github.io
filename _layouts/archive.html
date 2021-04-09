@@ -2,9 +2,9 @@
 layout: default
 ---
 
-<h1>Archives</h1>
+<div><h1>Archives</h1></div>
 {% for post in site.posts %} {% assign currentdate = post.date | date: "%Y" %} {% if currentdate != date %}
-<h2 id="year-heading">{{ currentdate }}</h2>
+<div><h2 class="year-heading">{{ currentdate }}</h2></div>
 {% assign date = currentdate %} {% endif %}
 <div class="post-listing"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
 {% endfor %}

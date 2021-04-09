@@ -2,11 +2,13 @@
 layout: default
 ---
 
-<h1>Tags</h1>
+<div><h1>Tags</h1></div>
 
 {% assign tags = site.tags | sort:key %} {% for tag in tags %} {% capture tag_name %}{{ tag | first }}{% endcapture %}
 
-<h2 class="tag-heading">{{ tag_name }}</h2>
+<div>
+  <h2 class="tag-heading">{{ tag_name }}</h2>
+</div>
 <a name="{{ tag_name | downcase | slugify }}"></a>
 {% for post in site.tags[tag_name] %}
 <article class="post-listing">

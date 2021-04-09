@@ -1,0 +1,34 @@
+//
+// Base Rules
+//
+
+html {
+  font-size: 16px;
+  background: var(--color-outer-background);
+}
+
+body {
+  margin: 10px;
+  background-color: var(--color-primary-offset);
+  border: 1px solid var(--color-outer-border);
+  color: var(--color-main-text);
+  border-radius: 5px;
+  font: 18px/1.4 $notoSans;
+  color: $darkGray;
+  min-height: 100%;
+}
+
+a {
+  cursor: pointer;
+  color: var(--color-main-text);
+  text-decoration-color: var(--color-main-text);
+  text-decoration: underline;
+  transition: text-decoration-color 0.5s;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+    color: var(--color-main-text);
+    text-decoration-color: var(--color-secondary-main);
+  }
+}

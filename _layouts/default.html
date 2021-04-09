@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html user-color-mode="light">
   <head>
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
     {% include meta.html %}
@@ -8,6 +8,12 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <script>
+      const colorMode = localStorage.getItem('app:colorMode') || 'light';
+      const colorModeAttr = document.getElementsByTagName('html')[0].attributes['user-color-mode'];
+      colorModeAttr.value = colorMode;
+    </script>
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link
@@ -23,6 +29,7 @@
   </head>
 
   <body>
+    {% include header.html %}
     <div id="sidebar">
       <div class="sidebar-body">
         <div class="masthead">
@@ -49,10 +56,23 @@
             <p><a href="/archive">Archives</a></p>
             <p><a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a></p>
           </div>
+          <div>
+            <button class="color-mode-toggle dark" onclick="setColorMode('dark')">Switch to Dark Mode</button>
+            <button class="color-mode-toggle light" onclick="setColorMode('light')">Switch to Light Mode</button>
+          </div>
         </div>
       </div>
     </div>
     <div id="main" role="main">{{ content }}</div>
+
+    {% include footer.html %}
+
+    <script>
+      function setColorMode(colorMode) {
+        localStorage.setItem('app:colorMode', colorMode);
+        colorModeAttr.value = colorMode;
+      }
+    </script>
 
     {% include analytics.html %} {% include toggle-menu.html %}
   </body>
