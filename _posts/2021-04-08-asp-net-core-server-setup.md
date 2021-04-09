@@ -2,6 +2,7 @@
 layout: post
 title: 'ASP.Net Core initial server setup'
 date: 2021-04-08 12:00:00 -0500
+edit: 2021-04-09 12:00:00 -0500
 tags: ['Server', 'Pipeline', 'DevOps', '.NET Core']
 ---
 
@@ -23,7 +24,7 @@ This step is simple, but sometimes finding the install bundle isn't. Start by go
 
 <img alt="Download Version" src="/images/asp-net-core-server-setup-1.png" class="right sz400init"/>
 
-My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under that version and then on the next page specifically choose **Download Hosting Bundle**. The hosting bundle is critical because it will install a necessary IIS ISAPI filter for ASP.NET Core. Once you have your bundle, simply install it on the server, and finally restart. To confirm your version is installed, run `dotnet --info` in powershell. The _Host_ section should reflect the version you just installed. **Note**: Don't be discouraged if you see the message `It was not possible to find any installed .NET Core SDKs`. The SDK is a separate install, and is not required for runtime.
+My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under that version and then on the next page specifically choose **Download Hosting Bundle**. The hosting bundle is critical because it will install a necessary IIS ISAPI filter for ASP.NET Core. Once you have your bundle, simply install it on the server, and finally restart. To confirm your version is installed, run `dotnet --info` in powershell. The _Host_ section should reflect the version you just installed. **Note**: Don't be discouraged if you see the message _It was not possible to find any installed .NET Core SDKs_. The SDK is a separate install, and is not required for runtime.
 
 ![Download Version](/images/asp-net-core-server-setup-2.png)
 
@@ -31,16 +32,26 @@ My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under
 
 ## IIS
 
-One of the first things I do when configuring IIS is set up the HTTPS binding. To do this, choose the website that will respond to HTTPS requests from the left menu, often the default, and click bindings on the right menu. Click _Add..._ and select type `https`. For my purposes, IP address is set to `All Unassigned` and the port stays the default 443. Last but not least I select the certificate I want to use below. This should align with whatever your server url will be. As I said before, my certificates came preinstalled, so I just had to choose the right one.
+One of the first things I do when configuring IIS is set up the HTTPS binding.
+
+<img alt="Download Version" src="/images/asp-net-core-server-setup-5.png" class="right sz400init"/>
+
+To do this, choose the website that will respond to HTTPS requests from the left menu, often the default, and click bindings on the right menu. Click _Add..._ and select type `https`. For my purposes, IP address is set to `All Unassigned` and the port stays the default 443. Last but not least I select the certificate I want to use below. This should align with whatever your server url will be. As I said before, my certificates came preinstalled, so I just had to choose the right one.
 
 Next I add some security minded headers to the default return headers. In the root server options (Server name on the left side menu), find _HTTP Response Headers_ in the IIS section. The two headers I always add are:
 
 - `X-Content-Type-Options` : `nosniff`
 - `X-Frame-Options` : `deny`
 
-Usually I would add and HSTS header here also, but in IIS for server 2019 there is a new, easy way to manage this. Going back to the website you previously configured to response to https requests, there is now a _HSTS_ button near the bottom of the right hand menu. Clicking this, I enabled HSTS and configured max-age to 2628000 (1 Month). I also check `Redirect Http to Https`. Keep in mind, if you're going to make certificate changes or run the app over unsecured HTTP, you'll want to set the max-age low or you will be stuck making TLS requests for the set duration, **even if you change it later**
+![HTTP Response Header location](/images/asp-net-core-server-setup-4.png)
 
-Next I remove the `Server` and `X-Powered-By` headers. You should have seen `X-Powered-By` in root server options _HTTP Response Headers_. Delete it to remove it from the default response headers. The `Server` header is a bit more tricky. In the root server options, find _Configuration Editor_ in the Management section. Then go to section `system.webServer/security/requestFiltering` and set `removeServerHeader` to true. Once you click apply on the right menu, the header should be removed.
+Usually I would add and HSTS header here also, but in IIS for server 2019 there is a new, easy way to manage this. Going back to the website you previously configured to response to https requests, there is now a _HSTS_ button near the bottom of the right hand menu. I enable HSTS and configured max-age to 2628000 (1 Month). I also check `Redirect Http to Https`. Keep in mind, if you're going to make certificate changes or run the app over unsecured HTTP, you'll want to set the max-age low or you will be stuck making TLS requests for the set duration, **even if you change it later**
+
+![HSTS Settings](/images/asp-net-core-server-setup-6.png)
+
+Next I remove the `Server` and `X-Powered-By` headers. You should have seen `X-Powered-By` in root server options _HTTP Response Headers_. Delete it to remove it from the default response headers. The `Server` header is a bit more tricky. In the root server options, find _Configuration Editor_ in the Management section. Then go to section `system.webServer/security/requestFiltering` and set `removeServerHeader` to `true`. Once you click apply on the right menu, the header should be removed.
+
+![Configuration editor](/images/asp-net-core-server-setup-7.png)
 
 IIS should now be upgrading all requests to HTTPS automatically, and a response should only return the desired headers.
 
@@ -48,7 +59,7 @@ IIS should now be upgrading all requests to HTTPS automatically, and a response 
 
 By default PUT and DELETE requests are handled by [WebDav](https://en.wikipedia.org/wiki/WebDAV). If you are going to use those verbs in your ASP.Net Core app, then you'll need to disable WebDAV or it will try and respond to any of your legitimate requests using those verbs. The best way to do this is to go into the IIS base configuration file, usually found at `%SystemDrive%\windows\system32\inetsrv\config\applicationHost.config`, and comment out the following line in the modules section:
 
-```
+```xml
 <add name="WebDAVModule" lockItem="true" />
 ```
 
@@ -56,7 +67,9 @@ This is the only way I've found to prevent WebDAV from interfering with PUT and 
 
 ## Installing the agent
 
-Finally, I always install an [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) agent. In Azure Devops > Organization Settings > Deployment pools, I click the `+ New` button on the top menu. Setting the deployment pool name and projects I want to allow deployments to, I create a new pool. From here, you should see the details tab of the new pool. On the right is the agent install powershell script. I usually check `Use a personal access token in the script for authentication`. You'll need to run this script on the server in an elevated powershell window (as Administrator). Once this is complete, you should see your server appear in the Deployment Pool's Targets tab.
+Finally, I always install an [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) agent. In Azure Devops > Organization Settings > Deployment pools, I click new on the top menu. Setting the deployment pool name and projects I want to allow deployments to, I create the new pool. From here, you should see the details tab of the new pool. On the right is the agent install powershell script. I usually check _Use a personal access token in the script for authentication_. You'll need to run this script on the server in an elevated powershell window (as Administrator). Once this is complete, you should see your server appear in the Deployment Pool's Targets tab.
+
+![Agent install powershell](/images/asp-net-core-server-setup-8.png)
 
 ## Wrapping up
 
