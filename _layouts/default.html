@@ -30,50 +30,7 @@
 
   <body>
     {% include header.html %}
-    <div id="sidebar">
-      <div class="sidebar-body">
-        <div class="masthead">
-          <a class="site-name" href="/">{{ site.name }}</a>
-          <p class="site-description">{{ site.description }}</p>
-          <div class="menu-toggle" onclick="toggleMenu()">
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-          </div>
-        </div>
-        <div id="togglable" class="closed">
-          <div class="site-recents">
-            <div class="site-recents-label">Recent Posts</div>
-            {% for post in site.posts limit:6 %}
-            <div class="site-recents-post"><a href="{{ post.url }}">{{ post.title }}</a></div>
-            {% endfor %}
-          </div>
-          <div class="social">{% include svg-icons.html %}</div>
-          <div class="footer-links">
-            <p><a href="/tags">Tags</a></p>
-            <p><a href="/archive">Archives</a></p>
-            <p><a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a></p>
-          </div>
-          <div>
-            <button class="color-mode-toggle dark" onclick="setColorMode('dark')">Switch to Dark Mode</button>
-            <button class="color-mode-toggle light" onclick="setColorMode('light')">Switch to Light Mode</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="main" role="main">{{ content }}</div>
-
-    {% include footer.html %}
-
-    <script>
-      function setColorMode(colorMode) {
-        localStorage.setItem('app:colorMode', colorMode);
-        colorModeAttr.value = colorMode;
-      }
-    </script>
-
-    {% include analytics.html %} {% include toggle-menu.html %}
+    <main>{{ content }}</main>
+    {% include footer.html %} {% include analytics.html %}
   </body>
 </html>

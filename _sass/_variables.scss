@@ -2,6 +2,13 @@
 // VARIABLES
 //
 
+// font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+$notoSerif: 'Noto Serif', serif;
+$notoSans: 'Noto Sans', sans-serif;
+
 // grays
 $black: #000;
 $darkerGray: #222;
@@ -17,13 +24,16 @@ $white: #fff;
 $primary: #1e73be;
 $secondary: #ffe48f;
 $background: #d9ecff;
-
-// font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
-$notoSerif: 'Noto Serif', serif;
-$notoSans: 'Noto Sans', sans-serif;
+$lightblue: #a3cdff;
+$mango: #ffea9f;
+$peach: #ff9d7a;
+$tangerine: #ff8255;
+$grape: #e2d4ff;
+$lemon: #ffde69;
+$blush: #ffaad3;
+$lime: #a4e8a3;
+$strawberry: #ff9595;
+$teal: #8ae6fb;
 
 :root {
   --color-outer-background: #{$background};
@@ -42,48 +52,35 @@ $notoSans: 'Noto Sans', sans-serif;
 
   --color-selection-bg: #{$primary};
   --color-selection-text: #{$offWhite};
-  --color-secondary-bg: #fff5d2;
-  --color-secondary-text: #fde9a2;
-  --color-tertiary: #ff9d7a;
-  --color-accent: #ff8255;
-  --color-transparent: rgba(255, 255, 255, 0);
-  --pattern: #f8f8fa;
-  --color-patreon: #ff9d7a;
-  --color-codepen: #ffde69;
-  --color-devto: #a4e8a3;
-  --color-twitter: #8ae6fb;
-  --color-twitch: #e2d4ff;
-  --color-linkedin: #a3cdff;
-  --color-github: #ffaad3;
-  --color-switch-bg: rgba(62, 51, 85, 0.1);
-  --accent-border: linear-gradient(90deg, #ffaad3, #ff9d7a, #ffde69, #a4e8a3, #8ae6fb, #e2d4ff);
+
+  --color-tag: #{$lightblue};
+  --color-tag-border: #{darken($lightblue, 60%)};
+  --color-tag-highlight: #{$darkGray};
+
+  --color-tag-general: #{$strawberry};
+  --color-tag-general-border: #{darken($strawberry, 60%)};
+
+  --color-tag-server: #{$mango};
+  --color-tag-server-border: #{darken($mango, 60%)};
+
+  --color-tag-pipeline: #{$peach};
+  --color-tag-pipeline-border: #{darken($peach, 60%)};
+
+  --color-tag-net-core: #{$grape};
+  --color-tag-net-core-border: #{darken($grape, 60%)};
+
+  --color-tag-devops: #{$blush};
+  --color-tag-devops-border: #{darken($blush, 60%)};
+
+  --color-tag-angular: #{$lime};
+  --color-tag-angular-border: #{darken($lime, 60%)};
+
+  --color-tag-spam: #{$teal};
+  --color-tag-spam-border: #{darken($teal, 60%)};
 }
 
 :root[user-color-mode='dark'] {
   --color-main-text: #3e3355;
-  --color-main-text-transparent: rgba(62, 51, 85, 0.25);
-  --color-main-bg: #fefdfc;
-  --color-cta-text: #5b0505;
-  --color-cta-bg: #ff9d7a;
-  --color-brand-main: #f2edfc;
-  --color-brand-outline: #e2d4ff;
-  --color-selection-bg: #e2d4ff;
-  --color-selection-text: #400456;
-  --color-secondary-bg: #fff5d2;
-  --color-secondary-text: #fde9a2;
-  --color-tertiary: #ff9d7a;
-  --color-accent: #ff8255;
-  --color-transparent: rgba(255, 255, 255, 0);
-  --pattern: #f8f8fa;
-  --color-patreon: #ff9d7a;
-  --color-codepen: #ffde69;
-  --color-devto: #a4e8a3;
-  --color-twitter: #8ae6fb;
-  --color-twitch: #e2d4ff;
-  --color-linkedin: #a3cdff;
-  --color-github: #ffaad3;
-  --color-switch-bg: rgba(62, 51, 85, 0.1);
-  --accent-border: linear-gradient(90deg, #ffaad3, #ff9d7a, #ffde69, #a4e8a3, #8ae6fb, #e2d4ff);
 }
 
 // Mobile breakpoints

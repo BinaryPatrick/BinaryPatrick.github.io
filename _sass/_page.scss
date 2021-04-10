@@ -1,0 +1,75 @@
+.medium {
+  width: 48rem;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+article {
+  display: grid;
+  padding: 3rem 0;
+  grid-template-columns: 1fr;
+  row-gap: 1.5rem;
+
+  & + article {
+    border-top: 2px solid var(--color-secondary-border);
+  }
+
+  time {
+    font-size: 1.4rem;
+  }
+
+  .post-title {
+    font-size: 2.75rem;
+    background-color: transparent;
+    line-height: 135%;
+    color: var(--color-main-text);
+    background-image: none;
+
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+    }
+  }
+}
+
+.post {
+  blockquote {
+    margin: 1.8em 0.8em;
+    border-left: 2px solid $gray;
+    padding: 0.1rem 1rem;
+    color: $gray;
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+
+  .comments {
+    margin-top: 10px;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+}
+
+.date {
+  font-size: 1rem;
+  font-style: italic;
+  color: $gray;
+
+  & + .date::before {
+    content: '|';
+    margin: 0 5px;
+    font-style: normal;
+  }
+
+  @include mobile {
+    font-size: 0.8rem;
+  }
+}
+
+.twitter-share-button {
+  vertical-align: middle;
+}

@@ -1,64 +1,12 @@
 ---
 ---
 
-/**************/
-/* IMPORTS */
-/**************/
-
 @import 'variables';
 @import 'reset';
 
-@import 'base';
-@import 'header';
-
 /**************/
-/* BASE RULES */
+/* GLOBAL RULES */
 /**************/
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $notoSerif;
-  font-weight: bold;
-  line-height: 1.7;
-  cursor: default;
-
-  @include mobile {
-    line-height: 1.4;
-  }
-}
-
-h1 {
-  display: inline-block;
-  padding: 0 7px;
-  margin-bottom: 5px;
-  background: #1e73be;
-  color: #fff;
-  border-radius: 3px;
-  font-size: 1.8rem;
-}
-
-h2 {
-  font-size: 1.4rem;
-  margin-top: 1rem;
-  display: inline-block;
-  padding: 0 5px;
-  border: 2px solid #1e73be;
-  color: #1e73be;
-}
-
-h3 {
-  font-size: 1.4rem;
-  margin-top: 1rem;
-}
-
-h4 {
-  font-size: 1.2px;
-  margin-top: 1rem;
-}
 
 p {
   margin: 1rem 0;
@@ -146,6 +94,26 @@ img {
   background: #888;
 }
 
+.site-name {
+  width: 16rem;
+  height: 3.6rem;
+  padding: 0 6px;
+  text-align: center;
+  font-family: 'Noto Serif', serif;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 3.6rem;
+  cursor: default;
+  color: var(--color-primary-offset);
+  background-color: var(--color-primary-main);
+
+  @include mobile {
+    width: 8rem;
+    height: 7rem;
+    text-align: left;
+  }
+}
+
 // Nicolas Gallagher's micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
@@ -159,254 +127,8 @@ img {
 }
 
 /*********************/
-/* SIDEBAR */
-/*********************/
-
-#sidebar {
-  width: 450px;
-  color: $white;
-  background-color: $primary;
-  font-family: $notoSans;
-  padding: 4rem;
-
-  @include tablet {
-    width: 300px;
-    padding: 2rem;
-  }
-
-  @include mobile {
-    padding: 1rem;
-    width: 100%;
-  }
-
-  .sidebar-body {
-    // position: fixed;
-    // width: calc(450px - 8rem);
-
-    @include tablet {
-      width: calc(300px - 4rem);
-    }
-
-    @include mobile {
-      position: relative;
-      width: 100%;
-    }
-  }
-
-  .masthead {
-    flex: 0 0;
-
-    .site-name {
-      font-family: $notoSerif;
-      line-height: 1.7;
-      font-weight: 300;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      padding: 0;
-      margin: 0;
-
-      &:hover {
-        color: $secondary;
-        text-decoration: none;
-      }
-
-      @include mobile {
-        line-height: 1.4;
-      }
-    }
-
-    .site-description {
-      font-size: 16px;
-      margin: 0;
-    }
-  }
-
-  #togglable {
-    @include mobile {
-      height: calc(100vh - 85px);
-      transition: height 0.4s;
-      overflow-y: hidden;
-
-      &.closed {
-        height: 0;
-      }
-    }
-
-    & > div {
-      padding-top: 3rem;
-
-      @include mobile {
-        padding-top: 1rem;
-      }
-    }
-  }
-
-  .menu-toggle {
-    cursor: pointer;
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    top: 1.1rem;
-    right: 0.8rem;
-    height: 2rem;
-    width: 2rem;
-
-    @include mobile {
-      display: flex;
-    }
-
-    .toggle-bar {
-      flex: 1;
-
-      & + .toggle-bar {
-        border-top: 1.5px solid $lightGray;
-      }
-    }
-  }
-
-  .site-recents {
-    .site-recents-label {
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      font-weight: bold;
-      margin-bottom: 1.5em;
-      font-size: 0.8em;
-    }
-
-    .site-recents-post {
-      $spacing: 5px;
-      display: block;
-
-      a {
-        display: inline-block;
-        padding: $spacing 0;
-      }
-
-      & + .site-recents-post a {
-        border-top: 0.5px solid #5d84a7;
-      }
-    }
-  }
-
-  .footer-links {
-    p {
-      margin: 5px 0;
-    }
-  }
-}
-
-:root[user-color-mode='dark'] .color-mode-toggle.dark {
-  display: none;
-}
-
-:root:not([user-color-mode='dark']) .color-mode-toggle.light {
-  display: none;
-}
-
-.color-mode-toggle {
-  cursor: pointer;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 3px;
-  padding: 10px;
-  font-size: 0.8rem;
-
-  &.dark {
-    background: #333;
-    color: #bbb;
-  }
-}
-
-/*********************/
 /* Main */
 /*********************/
-
-#main {
-  padding: 4rem;
-  max-width: 850px;
-  width: 66%;
-
-  @include tablet {
-    padding: 2rem;
-  }
-
-  @include mobile {
-    padding: 1rem;
-    width: 100%;
-  }
-}
-
-.posts > .post {
-  padding-bottom: 1rem;
-  border-bottom: 1px solid $lighterGray;
-
-  & + .post {
-    padding-top: 1rem;
-  }
-}
-
-.posts > .post:last-child {
-  padding-bottom: 1rem;
-  border-bottom: none;
-}
-
-.post {
-  blockquote {
-    margin: 1.8em 0.8em;
-    border-left: 2px solid $gray;
-    padding: 0.1rem 1rem;
-    color: $gray;
-    font-size: 1.5rem;
-    font-style: italic;
-  }
-
-  .comments {
-    margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 1rem;
-  }
-}
-
-.post-listing {
-  display: inline-block;
-  margin-right: 1.3rem;
-  margin-bottom: 0.7rem;
-  border-bottom: 0.5px dotted $lightGray;
-}
-
-.date {
-  font-size: 1rem;
-  font-style: italic;
-  color: $gray;
-
-  & + .date::before {
-    content: '|';
-    margin: 0 5px;
-    font-style: normal;
-  }
-
-  @include mobile {
-    font-size: 0.8rem;
-  }
-}
-
-.date .tags {
-  font-style: italic;
-  font-size: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #bbb;
-
-  .tag:not(:last-of-type)::after {
-    content: ',';
-  }
-}
-
-.twitter-share-button {
-  vertical-align: middle;
-}
 
 /*********************/
 /* Listing pages */
@@ -480,6 +202,12 @@ img {
     width: initial;
   }
 }
+
+@import 'base';
+@import 'header';
+@import 'page';
+@import 'tags';
+@import 'footer';
 
 @import 'highlights';
 @import 'svg-icons';
