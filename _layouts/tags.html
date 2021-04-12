@@ -2,16 +2,20 @@
 layout: default
 ---
 
-<div><h1>Tags</h1></div>
+<article class="page tags-page">
+  <header><h1>Tags</h1></header>
+  {% assign tags = site.tags | sort:key %}
 
-{% assign tags = site.tags | sort:key %} {% for tag in tags %} {% capture tag_name %}{{ tag | first }}{% endcapture %}
-
-<div>
-  <h2 class="tag-heading">{{ tag_name }}</h2>
-</div>
-<a name="{{ tag_name | downcase | slugify }}"></a>
-{% for post in site.tags[tag_name] %}
-<article class="post-listing">
-  <a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a>
+  <section class="tags">
+    {% for tag in tags %} {% capture tag_name %}{{ tag | first }}{% endcapture %} {% capture tag_slug %}{{ tag_name |
+    downcase | slugify }}{% endcapture %}
+    <a name="{{ tag_slug }}"></a>
+    <div class="tag tag-{{tag_slug}}">{{ tag_name }}</div>
+    <div class="post-listing">
+      {% for post in site.tags[tag_name] %}
+      <div class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </section>
 </article>
-{% endfor %} {% endfor %}

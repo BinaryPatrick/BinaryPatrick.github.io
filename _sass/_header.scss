@@ -13,15 +13,19 @@ header.site-header {
     text-decoration: none !important;
   }
 
-  .site-name:hover {
-    font-family: $headerFont;
-    font-size: 1.8rem;
-    padding-top: 1px;
-    color: var(--color-primary-offset);
+  .site-name {
+    transition: color 0.3s, background-color 0.3s;
+
+    &:hover {
+      color: var(--color-primary-main);
+      background-color: transparent;
+      border-color: var(--color-primary-main);
+    }
   }
 
   nav {
     ul {
+      font-family: $subHeaderFont;
       margin: 0 auto;
       padding: 0;
       line-height: 3.6rem;

@@ -11,15 +11,16 @@
 .site-name {
   width: 12rem;
   height: 3rem;
-  padding: 0 6px;
+  padding: 1px 6px;
   text-align: center;
-  font-family: 'Noto Serif', serif;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-family: $headerFont;
+  font-size: 1.8rem;
   line-height: 3rem;
   cursor: default;
   color: var(--color-primary-offset);
   background-color: var(--color-primary-main);
+  border: 2px solid var(--color-primary-main);
 
   @include mobile {
     width: 11.6rem;

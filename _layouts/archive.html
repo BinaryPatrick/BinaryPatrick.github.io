@@ -2,9 +2,18 @@
 layout: default
 ---
 
-<div><h1>Post Archive</h1></div>
-{% for post in site.posts %} {% assign currentdate = post.date | date: "%Y" %} {% if currentdate != date %}
-<div><h2 class="year-heading">{{ currentdate }}</h2></div>
-{% assign date = currentdate %} {% endif %}
-<div class="post-listing"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
-{% endfor %}
+<article class="page archive-page">
+  <header><h1>Post Archive</h1></header>
+  <section>
+    <div>
+      {% for post in site.posts %} {% assign currentdate = post.date | date: "%Y" %} {% if currentdate != date %}
+    </div>
+    <a name="{{currentdate}}"></a>
+    <h2 class="year-heading">{{ currentdate }}</h2>
+    <div class="post-listing">
+      {% assign date = currentdate %} {% endif %}
+      <div class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+      {% endfor %}
+    </div>
+  </section>
+</article>
