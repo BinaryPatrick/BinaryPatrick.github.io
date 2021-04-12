@@ -1,0 +1,79 @@
+header.site-header {
+  width: 70rem;
+  max-width: 90vw;
+  margin: 3rem auto 6rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  @include mobile {
+    margin: 1rem auto 3rem;
+  }
+
+  * {
+    text-decoration: none !important;
+  }
+
+  .site-name {
+    transition: color 0.3s, background-color 0.3s;
+
+    &:hover {
+      color: var(--color-primary-main);
+      background-color: transparent;
+      border-color: var(--color-primary-main);
+    }
+  }
+
+  nav {
+    ul {
+      font-family: $subHeaderFont;
+      margin: 0 auto;
+      padding: 0;
+      line-height: 3.6rem;
+      text-align: right;
+      list-style-type: none;
+      list-style-position: inside;
+
+      @include mobile {
+        line-height: 2.3rem;
+      }
+
+      li {
+        display: inline;
+        margin-right: 5rem;
+        font-size: 1.25rem;
+        color: var(--color-main-text);
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+
+        a {
+          position: relative;
+          top: 0;
+          border-bottom: 3px solid transparent;
+          transition: top 0.1s, padding 0.1s;
+
+          &:hover,
+          &:active,
+          &:focus {
+            top: -0.35rem;
+            padding-bottom: 0.5rem;
+            border-bottom-color: var(--color-primary-main);
+
+            @include mobile {
+              top: 0;
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+
+      @include mobile {
+        li {
+          display: block;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

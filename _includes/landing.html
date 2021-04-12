@@ -1,0 +1,22 @@
+<div class="page posts">
+  <h1>Posts</h1>
+  {% for post in site.posts limit:10 %}
+  <article class="post">
+    {%- assign iso_format = site.minima.date_format | default: '%FT%T %z' -%}
+    <time class="post-time" datetime="{{post.date | date: iso_format}}">
+      {%- assign pretty_format = site.minima.date_format | default: '%A, %-d. %B %Y' -%} {{post.date | date:
+      pretty_format}}
+    </time>
+    <div class="post-title">
+      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+    </div>
+    <div class="tags">
+      {% for tag in post.tags %} {% assign slug = tag | downcase | slugify %}
+      <a href="/tags#{{slug}}" class="tag tag-{{slug}}"># {{ tag }}</a>
+      {% endfor %}
+    </div>
+  </article>
+  {% endfor %}
+
+  <div class="find-more">Find more in the <a href="/archive">Post Archive</a></div>
+</div>

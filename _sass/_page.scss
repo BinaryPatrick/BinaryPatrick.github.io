@@ -1,0 +1,70 @@
+.page {
+  width: 40rem;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+
+  .post-listing {
+    display: block;
+    margin: 0 2rem 2rem 0;
+  }
+
+  .post {
+    display: grid;
+    padding: 3rem 0;
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+
+    & + article {
+      border-top: 2px solid var(--color-secondary-border);
+    }
+
+    time {
+      font-size: 1.4rem;
+    }
+  }
+
+  .post-title {
+    font-size: 2.25rem;
+    background-color: transparent;
+    line-height: 2.5rem;
+    color: var(--color-main-text);
+
+    a:hover,
+    a:focus,
+    a:active {
+      text-decoration: none;
+    }
+  }
+}
+
+.tags-page,
+.archive-page {
+  .tags {
+    margin-top: 2rem;
+  }
+
+  .post-title {
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    margin: 0 1rem 1rem 0;
+  }
+}
+
+.date + .date::before {
+  content: '|';
+  margin: 0 5px;
+  font-style: normal;
+}
+
+.tag-heading,
+.year-heading {
+  margin: 2rem 0;
+}
+
+.find-more {
+  padding-top: 3rem;
+  border-top: 2px solid var(--color-outer-border);
+  font-size: 1.4rem;
+}

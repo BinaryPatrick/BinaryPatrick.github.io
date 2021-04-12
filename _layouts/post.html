@@ -5,18 +5,21 @@ layout: default
 {%- assign date_format = site.minima.date_format | default: '%B %-d, %Y' -%}
 
 <article class="post">
-  <h1>{{ page.title }}</h1>
+  <header>
+    {%- assign iso_format = site.minima.date_format | default: '%FT%T %z' -%} {%- assign pretty_format =
+    site.minima.date_format | default: '%A, %-d. %B %Y' -%} {%- if page.edit -%}
+    <time class="post-time" datetime="{{page.edit | date: iso_format}}">{{page.edit | date: pretty_format}}</time>
+    {%- else -%}
+    <time class="post-time" datetime="{{page.date | date: iso_format}}">{{page.date | date: pretty_format}}</time>
+    {% endif %}
 
-  <div>
-    <span class="date">Written on {{ page.date | date: date_format }}</span>
-    {%- if page.edit -%}
-    <span class="date">Updated on {{ page.edit | date: date_format }}</span>
-    {%- endif -%}
-  </div>
-
-  <div class="entry">{{ content }}</div>
-  <p class="tags">
-    Tags: {% for tag in page.tags %} <a href="/tags#{{tag | downcase | slugify}}" class="tag">{{ tag }}</a> {% endfor %}
-  </p>
-  <p>{%- include twitter.html -%}</p>
+    <h1>{{ page.title }}</h1>
+    <div class="tags">
+      {% for tag in page.tags %} {% assign slug = tag | downcase | slugify %}
+      <a href="/tags#{{slug}}" class="tag tag-{{slug}}"># {{ tag }}</a>
+      {% endfor %}
+    </div>
+  </header>
+  <section>{{ content }}</section>
+  <footer>{%- include twitter.html -%}</footer>
 </article>

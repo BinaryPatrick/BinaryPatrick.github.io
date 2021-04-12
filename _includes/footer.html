@@ -1,0 +1,22 @@
+<footer class="site-footer">
+  <div class="site-name">Patrick Moore</div>
+  <div class="social">{% include svg-icons.html %}</div>
+  <div class="brand-statement">
+    Developer and Architect<br />
+    of Thoughtful Products
+  </div>
+  <div class="theme-picker">
+    <button class="color-mode-toggle dark" onclick="setColorMode('dark')">
+      <i class="svg-icon darkmode"></i> <span>Switch to Dark Theme</span>
+    </button>
+    <button class="color-mode-toggle light" onclick="setColorMode('light')">
+      <i class="svg-icon lightmode"></i> <span>Switch to Light Theme</span>
+    </button>
+  </div>
+</footer>
+<script>
+  function setColorMode(colorMode) {
+    localStorage.setItem('app:colorMode', colorMode);
+    colorModeAttr.value = colorMode;
+  }
+</script>

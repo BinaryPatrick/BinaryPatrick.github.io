@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html user-color-mode="light">
   <head>
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }}</title>
     {% include meta.html %}
@@ -8,6 +8,12 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <script>
+      const colorMode = localStorage.getItem('app:colorMode') || 'light';
+      const colorModeAttr = document.getElementsByTagName('html')[0].attributes['user-color-mode'];
+      colorModeAttr.value = colorMode;
+    </script>
 
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <link
@@ -23,37 +29,8 @@
   </head>
 
   <body>
-    <div id="sidebar">
-      <div class="sidebar-body">
-        <div class="masthead">
-          <a class="site-name" href="/">{{ site.name }}</a>
-          <p class="site-description">{{ site.description }}</p>
-          <div class="menu-toggle" onclick="toggleMenu()">
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-            <div class="toggle-bar"></div>
-          </div>
-        </div>
-        <div id="togglable" class="closed">
-          <div class="site-recents">
-            <div class="site-recents-label">Recent Posts</div>
-            {% for post in site.posts limit:6 %}
-            <div class="site-recents-post"><a href="{{ post.url }}">{{ post.title }}</a></div>
-            {% endfor %}
-          </div>
-          <div class="social">{% include svg-icons.html %}</div>
-          <div class="footer-links">
-            <p><a href="/tags">Tags</a></p>
-            <p><a href="/archive">Archives</a></p>
-            <p><a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="main" role="main">{{ content }}</div>
-
-    {% include analytics.html %} {% include toggle-menu.html %}
+    {% include header.html %}
+    <main>{{ content }}</main>
+    {% include footer.html %} {% include analytics.html %}
   </body>
 </html>

@@ -1,0 +1,71 @@
+.tags {
+  .tag {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    padding: 3px 10px;
+    border-radius: 6rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--color-tag-border);
+    background-color: var(--color-tag);
+    color: var(--color-tag-border);
+    text-decoration: none;
+    transition: border 0.35s;
+
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      border-color: var(--color-tag-highlight);
+    }
+  }
+
+  .tag-general {
+    background-color: var(--color-tag-general);
+    border-color: var(--color-tag-general-border);
+    color: var(--color-tag-general-border);
+  }
+
+  .tag-outlook {
+    background-color: var(--color-tag-outlook);
+    border-color: var(--color-tag-outlook-border);
+    color: var(--color-tag-outlook-border);
+  }
+
+  .tag-server {
+    background-color: var(--color-tag-server);
+    border-color: var(--color-tag-server-border);
+    color: var(--color-tag-server-border);
+  }
+
+  .tag-pipeline {
+    background-color: var(--color-tag-pipeline);
+    border-color: var(--color-tag-pipeline-border);
+    color: var(--color-tag-pipeline-border);
+  }
+
+  .tag-net-core {
+    background-color: var(--color-tag-net-core);
+    border-color: var(--color-tag-net-core-border);
+    color: var(--color-tag-net-core-border);
+  }
+
+  .tag-devops {
+    background-color: var(--color-tag-devops);
+    border-color: var(--color-tag-devops-border);
+    color: var(--color-tag-devops-border);
+  }
+
+  .tag-angular {
+    background-color: var(--color-tag-angular);
+    border-color: var(--color-tag-angular-border);
+    color: var(--color-tag-angular-border);
+  }
+
+  .tag-spam {
+    background-color: var(--color-tag-spam);
+    border-color: var(--color-tag-spam-border);
+    color: var(--color-tag-spam-border);
+  }
+}

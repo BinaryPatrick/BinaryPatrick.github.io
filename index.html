@@ -2,12 +2,4 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts limit:10 %}
-  <article class="post">
-    <a href="{{ site.baseurl }}{{ post.url }}"><h1>{{ post.title }}</h1></a>
-    <div class="entry">{{ post.excerpt }}</div>
-    <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-  </article>
-  {% endfor %}
-</div>
+{% include landing.html %}
