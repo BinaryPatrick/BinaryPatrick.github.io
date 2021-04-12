@@ -22,12 +22,13 @@ First things first, make sure you can remote into the server, and make sure you 
 
 This step is simple, but sometimes finding the install bundle isn't. Start by going to the [dotnet download page](https://dotnet.microsoft.com/download) where you'll see several available versions. I typically choose the current **LTS** version, but _ultimately the version will need to match whatever version of dotnet your app is running_.
 
-<img alt="Download Version" src="/images/asp-net-core-server-setup-1.png" class="right sz400init"/>
+![Download Version](/images/asp-net-core-server-setup-1.png)
+
 My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under that version and then on the next page specifically choose **Download Hosting Bundle**. The hosting bundle is critical because it will install a necessary IIS ISAPI filter for ASP.NET Core. Once you have your bundle, simply install it on the server, and finally restart. To confirm your version is installed, run `dotnet --info` in powershell. The _Host_ section should reflect the version you just installed.
 
 > Don't be discouraged if you see a message saying **It was not possible to find any installed .NET Core SDKs**. The SDK is a separate install, and is not required for runtime.
 
-![Download Version](/images/asp-net-core-server-setup-2.png)
+![Download hosting bundle](/images/asp-net-core-server-setup-2.png)
 
 ![dotnet info](/images/asp-net-core-server-setup-3.png)
 
@@ -35,7 +36,7 @@ My app currently uses 3.1 LTS, so I'll pick **Download .NET Core Runtime** under
 
 One of the first things I do when configuring IIS is set up the HTTPS binding.
 
-<img alt="Download Version" src="/images/asp-net-core-server-setup-5.png" class="right sz400init"/>
+![Website bindings](/images/asp-net-core-server-setup-5.png)
 
 To do this, choose the website that will respond to HTTPS requests from the left menu, often the default, and click bindings on the right menu. Click _Add..._ and select type `https`. For my purposes, IP address is set to `All Unassigned` and the port stays the default 443. Last but not least I select the certificate I want to use below. This should align with whatever your server url will be. As I said before, my certificates came preinstalled, so I just had to choose the right one.
 
@@ -58,7 +59,7 @@ IIS should now be upgrading all requests to HTTPS automatically, and a response 
 
 ## The WebDAV problem
 
-By default PUT and DELETE requests are handled by [WebDav](https://en.wikipedia.org/wiki/WebDAV). If you are going to use those verbs in your ASP.Net Core app, then you'll need to disable WebDAV or it will try and respond to any of your legitimate requests using those verbs. The best way to do this is to go into the IIS base configuration file, usually found at `%SystemDrive%\windows\system32\inetsrv\config\applicationHost.config`, and comment out the following line in the modules section:
+By default PUT and DELETE requests are handled by [WebDav](https://en.wikipedia.org/wiki/WebDAV). If you are going to use those verbs in your ASP.Net Core app, then you'll need to disable WebDAV or it will try and respond to any of your legitimate requests using those verbs. The best way to do this is to go into the IIS base configuration file, usually found at `%SystemDrive%\windows\system32\inetsrv\config` `\applicationHost.config`, and comment out the following line in the modules section:
 
 ```xml
 <add name="WebDAVModule" lockItem="true" />

@@ -6,8 +6,11 @@
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
-$notoSerif: 'Noto Serif', serif;
-$notoSans: 'Noto Sans', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&family=Oleo+Script:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+$headerFont: 'Oleo Script', cursive;
+$subHeaderFont: 'Noto Serif', serif;
+$bodyFont: 'Open Sans', sans-serif;
 
 // grays
 $black: #000;
@@ -37,7 +40,7 @@ $teal: #8ae6fb;
 
 :root {
   --color-outer-background: #{$background};
-  --color-outer-border: #{darken($background, 30%)};
+  --color-outer-border: #{darken($background, 10%)};
 
   --color-main-text: #{$darkGray};
   --color-main-offset: #{$offWhite};
@@ -53,15 +56,18 @@ $teal: #8ae6fb;
   --color-selection-bg: #{$primary};
   --color-selection-text: #{$offWhite};
 
-  --color-tag: #{$lightblue};
-  --color-tag-border: #{darken($lightblue, 60%)};
+  --color-tag: #{$lightGray};
+  --color-tag-border: #{darken($lightGray, 60%)};
   --color-tag-highlight: #{$darkGray};
+
+  --color-tag-outlook: #{$lightblue};
+  --color-tag--outlook-border: #{darken($lightblue, 60%)};
 
   --color-tag-general: #{$strawberry};
   --color-tag-general-border: #{darken($strawberry, 60%)};
 
   --color-tag-server: #{$mango};
-  --color-tag-server-border: #{darken($mango, 60%)};
+  --color-tag-server-border: #{darken($mango, 70%)};
 
   --color-tag-pipeline: #{$peach};
   --color-tag-pipeline-border: #{darken($peach, 60%)};

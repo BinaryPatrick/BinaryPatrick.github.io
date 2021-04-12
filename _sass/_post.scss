@@ -1,0 +1,88 @@
+article.post {
+  max-width: 70rem;
+  margin: 0 auto;
+
+  header {
+    margin: 3rem auto;
+    max-width: 90vw;
+
+    time {
+      display: block;
+      margin: 1rem 0;
+      font-size: 1.4rem;
+    }
+
+    h1 {
+      max-width: 100%;
+      width: 50rem;
+      margin: 1rem 0;
+      font-size: 3.25rem;
+      font-weight: 400;
+      line-height: 130%;
+    }
+
+    .tags {
+      margin-top: 1rem;
+    }
+  }
+
+  section {
+    margin: 8rem 0;
+    font-size: 1.4rem;
+
+    & > * {
+      display: block;
+      margin-left: auto;
+      margin: 2rem auto;
+      line-height: 140%;
+      max-width: 90vw;
+    }
+
+    & > p,
+    & > h2,
+    & > ul,
+    & > ol {
+      width: 40rem;
+      max-width: 90vw;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h2 {
+      position: relative;
+      padding-left: 1rem;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: var(--color-primary-main);
+        width: 0.25rem;
+        height: 2.1rem;
+        top: 1rem;
+        left: 0;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}
+
+.post {
+  blockquote {
+    margin: 1.8em 0.8em;
+    border-left: 2px solid $gray;
+    padding: 0.1rem 1rem;
+    color: $gray;
+    font-size: 1.5rem;
+    font-style: italic;
+  }
+
+  .comments {
+    margin-top: 10px;
+  }
+
+  .read-more {
+    text-transform: uppercase;
+    font-size: 1rem;
+  }
+}

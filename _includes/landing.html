@@ -1,7 +1,7 @@
 <div class="medium posts">
   <h1>Posts</h1>
   {% for post in site.posts limit:10 %}
-  <article class="post">
+  <article class="landing-post">
     {%- assign iso_format = site.minima.date_format | default: '%FT%T %z' -%}
     <time class="post-time" datetime="{{post.date | date: iso_format}}">
       {%- assign pretty_format = site.minima.date_format | default: '%A, %-d. %B %Y' -%} {{post.date | date:
@@ -17,4 +17,6 @@
     </div>
   </article>
   {% endfor %}
+
+  <div class="find-more">Find more in the <a href="/archive">Post Archive</a></div>
 </div>

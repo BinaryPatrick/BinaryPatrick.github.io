@@ -1,0 +1,19 @@
+#not-found {
+  text-align: center;
+}
+#not-found h1 {
+  font-size: 15rem;
+  font-family: 'Courier New';
+  line-height: 15rem;
+
+  @include mobile {
+    font-size: 10rem;
+  }
+}
+#not-found p {
+  font-size: 2rem;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}

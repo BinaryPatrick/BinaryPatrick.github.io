@@ -1,22 +1,23 @@
-header {
-  width: 82rem;
+header.site-header {
+  width: 70rem;
   max-width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
+  margin: 3rem auto 6rem;
   display: grid;
   grid-template-columns: auto 1fr;
+
+  @include mobile {
+    margin: 1rem auto 3rem;
+  }
 
   * {
     text-decoration: none !important;
   }
 
-  .site-name {
-    transition: color 0.5s;
-
-    &:hover {
-      color: var(--color-secondary-main);
-    }
+  .site-name:hover {
+    font-family: $headerFont;
+    font-size: 1.8rem;
+    padding-top: 1px;
+    color: var(--color-primary-offset);
   }
 
   nav {
@@ -28,10 +29,14 @@ header {
       list-style-type: none;
       list-style-position: inside;
 
+      @include mobile {
+        line-height: 2.3rem;
+      }
+
       li {
         display: inline;
-        margin-right: 3rem;
-        font-size: 1.3rem;
+        margin-right: 5rem;
+        font-size: 1.25rem;
         color: var(--color-main-text);
 
         &:last-of-type {
@@ -42,14 +47,19 @@ header {
           position: relative;
           top: 0;
           border-bottom: 3px solid transparent;
-          transition: top 0.35s, padding 0.35s;
+          transition: top 0.1s, padding 0.1s;
 
           &:hover,
           &:active,
           &:focus {
-            top: -0.3rem;
-            padding-bottom: 0.3rem;
+            top: -0.35rem;
+            padding-bottom: 0.5rem;
             border-bottom-color: var(--color-primary-main);
+
+            @include mobile {
+              top: 0;
+              padding-bottom: 0;
+            }
           }
         }
       }

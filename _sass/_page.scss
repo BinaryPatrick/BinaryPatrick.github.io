@@ -5,7 +5,7 @@
   margin-right: auto;
 }
 
-article {
+.landing-post {
   display: grid;
   padding: 3rem 0;
   grid-template-columns: 1fr;
@@ -20,7 +20,7 @@ article {
   }
 
   .post-title {
-    font-size: 2.75rem;
+    font-size: 2.25rem;
     background-color: transparent;
     line-height: 135%;
     color: var(--color-main-text);
@@ -34,42 +34,23 @@ article {
   }
 }
 
-.post {
-  blockquote {
-    margin: 1.8em 0.8em;
-    border-left: 2px solid $gray;
-    padding: 0.1rem 1rem;
-    color: $gray;
-    font-size: 1.5rem;
-    font-style: italic;
-  }
-
-  .comments {
-    margin-top: 10px;
-  }
-
-  .read-more {
-    text-transform: uppercase;
-    font-size: 1rem;
-  }
-}
-
-.date {
-  font-size: 1rem;
-  font-style: italic;
-  color: $gray;
-
-  & + .date::before {
-    content: '|';
-    margin: 0 5px;
-    font-style: normal;
-  }
-
-  @include mobile {
-    font-size: 0.8rem;
-  }
+.date + .date::before {
+  content: '|';
+  margin: 0 5px;
+  font-style: normal;
 }
 
 .twitter-share-button {
   vertical-align: middle;
+}
+
+.tag-heading,
+.year-heading {
+  margin: 15px 0 10px;
+}
+
+.find-more {
+  padding-top: 3rem;
+  border-top: 2px solid var(--color-outer-border);
+  font-size: 1.4rem;
 }

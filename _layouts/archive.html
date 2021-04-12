@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<div><h1>Archives</h1></div>
+<div><h1>Post Archive</h1></div>
 {% for post in site.posts %} {% assign currentdate = post.date | date: "%Y" %} {% if currentdate != date %}
 <div><h2 class="year-heading">{{ currentdate }}</h2></div>
 {% assign date = currentdate %} {% endif %}
