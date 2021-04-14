@@ -1,10 +1,10 @@
 html {
   font-size: 19px;
-  background: var(--color-primary-main);
+  background: var(--color-outer-background);
   overflow-y: scroll;
 
   @include tablet {
-    background-color: var(--color-primary-offset);
+    background-color: var(--color-outer-background);
   }
 
   @include mobile {
@@ -20,7 +20,6 @@ body {
   color: var(--color-main-text);
   border-radius: 5px;
   font: 18px/1.4 $bodyFont;
-  color: $darkGray;
   min-height: 100%;
 
   @include tablet {

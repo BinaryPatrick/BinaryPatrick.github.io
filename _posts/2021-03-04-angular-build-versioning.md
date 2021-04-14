@@ -41,6 +41,7 @@ export const environment = {
 In the non-production environment though, I like to add a dev tag.
 
 ```js
+// comment
 appVersion: require('../../package.json').version + '--dev';
 ```
 

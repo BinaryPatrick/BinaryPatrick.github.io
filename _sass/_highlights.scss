@@ -1,5 +1,31 @@
+:root {
+  --color-highlight-background: #efefef;
+  --color-highlight-comment: #00b200;
+  --color-highlight-string-literal: #bb6644;
+  --color-highlight-keyword-blue: #3890d8;
+  --color-highlight-punctuation: #000000;
+  --color-highlight-variable: #000000;
+  --color-highlight-attribute: #555555;
+  --color-highlight-class-name: #2b91af;
+  --color-highlight-generic: #cb4b16;
+  --color-highlight-special: #b58900;
+}
+
+:root[user-color-mode='dark'] {
+  --color-highlight-background: #4b4b4b;
+  --color-highlight-comment: #2d822d;
+  --color-highlight-string-literal: #da6130;
+  --color-highlight-keyword-blue: #6bbcff;
+  --color-highlight-punctuation: #b1b1b1;
+  --color-highlight-variable: #ffea9f;
+  --color-highlight-attribute: #adadad;
+  --color-highlight-class-name: #4dc1a1;
+  --color-highlight-generic: #cb4b16;
+  --color-highlight-special: #b58900;
+}
+
 .highlight {
-  background-color: #efefef;
+  background-color: var(--color-highlight-background);
   padding: 7px 7px 7px 10px;
   margin: 0;
   overflow: auto;
@@ -10,224 +36,213 @@ code {
 }
 
 code.language-plaintext {
-  background: #eee;
+  background: var(--color-highlight-background);
   padding: 3px;
 }
 
-$commentGreen: #00b200;
-$stringLiteralClay: #bb6644;
-$keywordBlue: #3890d8;
-$punctuationBlack: $black;
-$variableNameBlack: $black;
-$attributeNameGray: $gray;
-$classNameBlue: #2b91af;
-
-$orange: #cb4b16;
-$tan: #b58900;
-
 .highlight .c {
-  color: $commentGreen; /* Comment */
+  color: var(--color-highlight-comment); /* Comment */
 }
 .highlight .err {
-  color: $classNameBlue; /* Error */
+  color: var(--color-highlight-class-name); /* Error */
 }
 .highlight .g {
-  color: $classNameBlue; /* Generic */
+  color: var(--color-highlight-class-name); /* Generic */
 }
 .highlight .k {
-  color: $keywordBlue; /* Keyword */
+  color: var(--color-highlight-keyword-blue); /* Keyword */
 }
 .highlight .l {
-  color: $classNameBlue; /* Literal */
+  color: var(--color-highlight-class-name); /* Literal */
 }
 .highlight .n {
-  color: $variableNameBlack; /* Name */
+  color: var(--color-highlight-variable); /* Name */
 }
 .highlight .o {
-  color: $punctuationBlack; /* Operator */
+  color: var(--color-highlight-punctuation); /* Operator */
 }
 .highlight .x {
-  color: $orange; /* Other */
+  color: var(--color-highlight-generic); /* Other */
 }
 .highlight .p {
-  color: $punctuationBlack; /* Punctuation */
+  color: var(--color-highlight-punctuation); /* Punctuation */
 }
 .highlight .cm {
-  color: $commentGreen; /* Comment.Multiline */
+  color: var(--color-highlight-comment); /* Comment.Multiline */
 }
 .highlight .cp {
-  color: $punctuationBlack; /* Comment.Preproc */
+  color: var(--color-highlight-punctuation); /* Comment.Preproc */
 }
 .highlight .c1 {
-  color: $commentGreen; /* Comment.Single */
+  color: var(--color-highlight-comment); /* Comment.Single */
 }
 .highlight .cs {
-  color: $tan; /* Comment.Special */
+  color: var(--color-highlight-special); /* Comment.Special */
 }
 .highlight .gd {
-  color: $stringLiteralClay; /* Generic.Deleted */
+  color: var(--color-highlight-string-literal); /* Generic.Deleted */
 }
 .highlight .ge {
-  color: $classNameBlue; /* Generic.Emph */
+  color: var(--color-highlight-class-name); /* Generic.Emph */
   font-style: italic;
 }
 .highlight .gr {
-  color: $orange; /* Generic.Error */
+  color: var(--color-highlight-generic); /* Generic.Error */
 }
 .highlight .gh {
-  color: $orange; /* Generic.Heading */
+  color: var(--color-highlight-generic); /* Generic.Heading */
 }
 .highlight .gi {
-  color: $tan; /* Generic.Inserted */
+  color: var(--color-highlight-special); /* Generic.Inserted */
 }
 .highlight .go {
-  color: $classNameBlue; /* Generic.Output */
+  color: var(--color-highlight-class-name); /* Generic.Output */
 }
 .highlight .gp {
-  color: $classNameBlue; /* Generic.Prompt */
+  color: var(--color-highlight-class-name); /* Generic.Prompt */
 }
 .highlight .gs {
-  color: $classNameBlue; /* Generic.Strong */
+  color: var(--color-highlight-class-name); /* Generic.Strong */
   font-weight: bold;
 }
 .highlight .gu {
-  color: $orange; /* Generic.Subheading */
+  color: var(--color-highlight-generic); /* Generic.Subheading */
 }
 .highlight .gt {
-  color: $classNameBlue; /* Generic.Traceback */
+  color: var(--color-highlight-class-name); /* Generic.Traceback */
 }
 .highlight .kc {
-  color: $stringLiteralClay; /* Keyword.Constant */
+  color: var(--color-highlight-string-literal); /* Keyword.Constant */
 }
 .highlight .kd {
-  color: $keywordBlue; /* Keyword.Declaration */
+  color: var(--color-highlight-keyword-blue); /* Keyword.Declaration */
 }
 .highlight .kn {
-  color: $tan; /* Keyword.Namespace */
+  color: var(--color-highlight-special); /* Keyword.Namespace */
 }
 .highlight .kp {
-  color: $tan; /* Keyword.Pseudo */
+  color: var(--color-highlight-special); /* Keyword.Pseudo */
 }
 .highlight .kr {
-  color: $keywordBlue; /* Keyword.Reserved */
+  color: var(--color-highlight-keyword-blue); /* Keyword.Reserved */
 }
 .highlight .kt {
-  color: $classNameBlue; /* Keyword.Type */
+  color: var(--color-highlight-class-name); /* Keyword.Type */
 }
 .highlight .ld {
-  color: $classNameBlue; /* Literal.Date */
+  color: var(--color-highlight-class-name); /* Literal.Date */
 }
 .highlight .m {
-  color: $stringLiteralClay; /* Literal.Number */
+  color: var(--color-highlight-string-literal); /* Literal.Number */
 }
 .highlight .s {
-  color: $stringLiteralClay; /* Literal.String */
+  color: var(--color-highlight-string-literal); /* Literal.String */
 }
 .highlight .na {
-  color: $attributeNameGray; /* Name.Attribute */
+  color: var(--color-highlight-attribute); /* Name.Attribute */
 }
 .highlight .nb {
-  color: $tan; /* Name.Builtin */
+  color: var(--color-highlight-special); /* Name.Builtin */
 }
 .highlight .nc {
-  color: $classNameBlue; /* Name.Class */
+  color: var(--color-highlight-class-name); /* Name.Class */
 }
 .highlight .no {
-  color: $stringLiteralClay; /* Name.Constant */
+  color: var(--color-highlight-string-literal); /* Name.Constant */
 }
 .highlight .nd {
-  color: $classNameBlue; /* Name.Decorator */
+  color: var(--color-highlight-class-name); /* Name.Decorator */
 }
 .highlight .ni {
-  color: $orange; /* Name.Entity */
+  color: var(--color-highlight-generic); /* Name.Entity */
 }
 .highlight .ne {
-  color: $orange; /* Name.Exception */
+  color: var(--color-highlight-generic); /* Name.Exception */
 }
 .highlight .nf {
-  color: $classNameBlue; /* Name.Function */
+  color: var(--color-highlight-class-name); /* Name.Function */
 }
 .highlight .nl {
-  color: $attributeNameGray; /* Name.Label */
+  color: var(--color-highlight-attribute); /* Name.Label */
 }
 .highlight .nn {
-  color: $attributeNameGray; /* Name.Namespace */
+  color: var(--color-highlight-attribute); /* Name.Namespace */
 }
 .highlight .nx {
-  color: $variableNameBlack; /* Name.Other */
+  color: var(--color-highlight-variable); /* Name.Other */
 }
 .highlight .py {
-  color: $attributeNameGray; /* Name.Property */
+  color: var(--color-highlight-attribute); /* Name.Property */
 }
 .highlight .nt {
-  color: $classNameBlue; /* Name.Tag */
+  color: var(--color-highlight-class-name); /* Name.Tag */
 }
 .highlight .nv {
-  color: $classNameBlue; /* Name.Variable */
+  color: var(--color-highlight-class-name); /* Name.Variable */
 }
 .highlight .ow {
-  color: $tan; /* Operator.Word */
+  color: var(--color-highlight-special); /* Operator.Word */
 }
 .highlight .w {
-  color: $classNameBlue; /* Text.Whitespace */
+  color: var(--color-highlight-class-name); /* Text.Whitespace */
 }
 .highlight .mf {
-  color: $stringLiteralClay; /* Literal.Number.Float */
+  color: var(--color-highlight-string-literal); /* Literal.Number.Float */
 }
 .highlight .mh {
-  color: $stringLiteralClay; /* Literal.Number.Hex */
+  color: var(--color-highlight-string-literal); /* Literal.Number.Hex */
 }
 .highlight .mi {
-  color: $stringLiteralClay; /* Literal.Number.Integer */
+  color: var(--color-highlight-string-literal); /* Literal.Number.Integer */
 }
 .highlight .mo {
-  color: $stringLiteralClay; /* Literal.Number.Oct */
+  color: var(--color-highlight-string-literal); /* Literal.Number.Oct */
 }
 .highlight .sb {
-  color: $stringLiteralClay; /* Literal.String.Backtick */
+  color: var(--color-highlight-string-literal); /* Literal.String.Backtick */
 }
 .highlight .sc {
-  color: $stringLiteralClay; /* Literal.String.Char */
+  color: var(--color-highlight-string-literal); /* Literal.String.Char */
 }
 .highlight .sd {
-  color: $classNameBlue; /* Literal.String.Doc */
+  color: var(--color-highlight-class-name); /* Literal.String.Doc */
 }
 .highlight .s2 {
-  color: $stringLiteralClay; /* Literal.String.Double */
+  color: var(--color-highlight-string-literal); /* Literal.String.Double */
 }
 .highlight .se {
-  color: $orange; /* Literal.String.Escape */
+  color: var(--color-highlight-generic); /* Literal.String.Escape */
 }
 .highlight .sh {
-  color: $classNameBlue; /* Literal.String.Heredoc */
+  color: var(--color-highlight-class-name); /* Literal.String.Heredoc */
 }
 .highlight .si {
-  color: $stringLiteralClay; /* Literal.String.Interpol */
+  color: var(--color-highlight-string-literal); /* Literal.String.Interpol */
 }
 .highlight .sx {
-  color: $stringLiteralClay; /* Literal.String.Other */
+  color: var(--color-highlight-string-literal); /* Literal.String.Other */
 }
 .highlight .sr {
-  color: $orange; /* Literal.String.Regex */
+  color: var(--color-highlight-generic); /* Literal.String.Regex */
 }
 .highlight .s1 {
-  color: $stringLiteralClay; /* Literal.String.Single */
+  color: var(--color-highlight-string-literal); /* Literal.String.Single */
 }
 .highlight .ss {
-  color: $stringLiteralClay; /* Literal.String.Symbol */
+  color: var(--color-highlight-string-literal); /* Literal.String.Symbol */
 }
 .highlight .bp {
-  color: $classNameBlue; /* Name.Builtin.Pseudo */
+  color: var(--color-highlight-class-name); /* Name.Builtin.Pseudo */
 }
 .highlight .vc {
-  color: $classNameBlue; /* Name.Variable.Class */
+  color: var(--color-highlight-class-name); /* Name.Variable.Class */
 }
 .highlight .vg {
-  color: $classNameBlue; /* Name.Variable.Global */
+  color: var(--color-highlight-class-name); /* Name.Variable.Global */
 }
 .highlight .vi {
-  color: $classNameBlue; /* Name.Variable.Instance */
+  color: var(--color-highlight-class-name); /* Name.Variable.Instance */
 }
 .highlight .il {
-  color: $stringLiteralClay; /* Literal.Number.Integer.Long */
+  color: var(--color-highlight-string-literal); /* Literal.Number.Integer.Long */
 }

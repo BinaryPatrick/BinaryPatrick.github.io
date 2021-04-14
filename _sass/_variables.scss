@@ -1,7 +1,3 @@
-//
-// VARIABLES
-//
-
 // font stacks
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -18,6 +14,7 @@ $darkerGray: #222;
 $darkGray: #333;
 $gray: #555;
 $middleGray: #777;
+$softGray: #aaa;
 $lightGray: #ccc;
 $lighterGray: #eee;
 $offWhite: #fefdfc;
@@ -39,15 +36,15 @@ $strawberry: #ff9595;
 $teal: #8ae6fb;
 
 :root {
-  --color-outer-background: #{$background};
-  --color-outer-border: #{darken($background, 10%)};
+  --color-outer-background: #{$primary};
+  --color-outer-border: #{darken($primary, 10%)};
 
   --color-main-text: #{$darkGray};
   --color-main-offset: #{$offWhite};
 
   --color-primary-main: #{$primary};
   --color-primary-offset: #{$white};
-  --color-primary-border: #{$darkGray};
+  --color-primary-border: #{$darkerGray};
 
   --color-secondary-main: #{$secondary};
   --color-secondary-offset: #{$darkGray};
@@ -86,7 +83,50 @@ $teal: #8ae6fb;
 }
 
 :root[user-color-mode='dark'] {
-  --color-main-text: #3e3355;
+  --color-outer-background: #{$darkGray};
+  --color-outer-border: #{$middleGray};
+
+  --color-main-text: #{$lightGray};
+  --color-main-offset: #{$darkGray};
+
+  --color-primary-main: #{$softGray};
+  --color-primary-offset: #{$darkerGray};
+  --color-primary-border: #{$lightGray};
+
+  --color-secondary-main: #{$secondary};
+  --color-secondary-offset: #{$darkGray};
+  --color-secondary-border: #{$background};
+
+  --color-selection-bg: #{$primary};
+  --color-selection-text: #{$softGray};
+
+  --color-tag: #{$lightGray};
+  --color-tag-border: #{darken($lightGray, 60%)};
+  --color-tag-highlight: #{$darkGray};
+
+  --color-tag-outlook: #{$lightblue};
+  --color-tag-outlook-border: #{darken($lightblue, 60%)};
+
+  --color-tag-general: #{$strawberry};
+  --color-tag-general-border: #{darken($strawberry, 60%)};
+
+  --color-tag-server: #{$mango};
+  --color-tag-server-border: #{darken($mango, 70%)};
+
+  --color-tag-pipeline: #{$peach};
+  --color-tag-pipeline-border: #{darken($peach, 60%)};
+
+  --color-tag-net-core: #{$grape};
+  --color-tag-net-core-border: #{darken($grape, 60%)};
+
+  --color-tag-devops: #{$blush};
+  --color-tag-devops-border: #{darken($blush, 60%)};
+
+  --color-tag-angular: #{$lime};
+  --color-tag-angular-border: #{darken($lime, 60%)};
+
+  --color-tag-spam: #{$teal};
+  --color-tag-spam-border: #{darken($teal, 60%)};
 }
 
 // Mobile breakpoints
