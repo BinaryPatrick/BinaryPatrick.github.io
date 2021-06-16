@@ -45,7 +45,10 @@
     color: var(--color-tag-pipeline-border);
   }
 
-  .tag-net-core {
+  .tag-asp-net-core,
+  .tag-net-core,
+  .tag-asp-net,
+  .tag-net {
     background-color: var(--color-tag-net-core);
     border-color: var(--color-tag-net-core-border);
     color: var(--color-tag-net-core-border);
@@ -67,5 +70,18 @@
     background-color: var(--color-tag-spam);
     border-color: var(--color-tag-spam-border);
     color: var(--color-tag-spam-border);
+  }
+
+  .tag-powershell {
+    background-color: var(--color-tag-powershell);
+    border-color: var(--color-tag-powershell-border);
+    color: var(--color-tag-powershell-border);
+  }
+
+  .tag-terminal,
+  .tag-windows-terminal {
+    background-color: var(--color-tag-terminal);
+    border-color: var(--color-tag-terminal-border);
+    color: var(--color-tag-terminal-border);
   }
 }

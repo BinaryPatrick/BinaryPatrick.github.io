@@ -34,6 +34,8 @@ $blush: #ffaad3;
 $lime: #a4e8a3;
 $strawberry: #ff9595;
 $teal: #8ae6fb;
+$nobleBlue: #023988;
+$terminalBg: #282c34;
 
 :root {
   --color-outer-background: #{$primary};
@@ -80,6 +82,12 @@ $teal: #8ae6fb;
 
   --color-tag-spam: #{$teal};
   --color-tag-spam-border: #{darken($teal, 60%)};
+
+  --color-tag-powershell: #{$nobleBlue};
+  --color-tag-powershell-border: #{$lighterGray};
+
+  --color-tag-terminal: #{$terminalBg};
+  --color-tag-terminal-border: #{$lighterGray};
 }
 
 :root[user-color-mode='dark'] {
