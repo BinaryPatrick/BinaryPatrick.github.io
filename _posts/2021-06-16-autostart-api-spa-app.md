@@ -49,7 +49,10 @@ start powershell.exe -NoExit npm run start
 This script worked well from ASP.Net Core 1.3 and Angular 2, all the way through today with .Net 5 and Angular 12. Recently though, I started to dabble in Powershell Core and Windows Terminal which led me to a more efficient approach to starting and managing my scripts.
 
 ```batch
-wt --title "dotnet watch run" -d "./src/api" powershell -noExit "dotnet watch run"; --title "npm run start" -d "./src/spa/" powershell -noExit "npm run start"
+set apiLocation=.\src\api
+set spaLocation=.\src\spa
+
+wt --title "dotnet watch run" -d %apiLocation% powershell -noExit "dotnet watch run"; --title "npm run start" -d %spaLocation% powershell -noExit "npm run start"
 ```
 
 With this one line, I can start a Windows Terminal with both scripts running in tabs. This allows me to keep both together and but also manage the window as one unit. The commands are similar, but the tabs are labeled, so I can quickly jump where I need to look. Also, this is far more expandable if I needed to run other startup scripts together in the future.
